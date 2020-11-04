@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+body {
+  background: #eeeeee;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ---------以下是header代码--------*/
+.index-header {
+  display: flex;
+  max-width: 600px;
+  margin: 50px auto;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  background-color: white;
+  padding-left: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 500px) {
+  .index-header {
+    max-width: 100%;
+    margin: 50px 30px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.index-header .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.index-search {
+  display: flex;
+  width: 100%;
+}
+
+.index-searchText {
+  border: none;
+  padding: 10px;
+  width: 100%;
+}
+
+.index-searchButton {
+  padding: 0 28px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(62, 167, 208, 1);
+  color: white;
+  text-align: center;
+  border: 1px solid rgba(221, 221, 221, 1);
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* ---------以下是main代码-------- */
+.index-main {
+  margin: 30px;
+}
+
+@media (min-width: 500px) {
+  .index-main {
+    max-width: 830px;
+    margin: 0 auto;
+  }
+
+  .main-list {
+    margin-right: 20px;
+  }
+
+  .index-main > ul {
+    width: 850px;
+  }
+}
+
+.index-main > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+  .index-main > ul {
+    justify-content: space-between;
+  }
+}
+.index-main-ul li:hover > svg {
+  display: block;
+}
+
+.main-list {
+  width: 150px;
+  border: 1px solid rgba(221, 221, 221, 1);
+  padding: 20px 0;
+  background-color: white;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.main-lists .icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+}
+
+.main-list > a {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.main-list .list-logo {
+  width: 64px;
+  height: 64px;
+  font-size: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-list .list-text {
+  font-size: 14px;
 }
