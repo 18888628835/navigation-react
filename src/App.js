@@ -1,33 +1,20 @@
 import React from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
-
+function keyPress(fn) {
+  return function (e) {
+    if (e.key === "+" || e.key === "=") {
+      fn();
+    }
+  };
+}
 export default function App() {
   let local = localStorage.getItem("x");
   let initialValue = JSON.parse(local) || [];
   const [state, setState] = React.useState(initialValue);
+
   React.useEffect(() => {
-    function keyup(e) {
-      if (e.key === "+" || e.key === "=") {
-        add();
-      }
-    }
-    document.addEventListener("keyup", keyup);
-  }, []);
-  React.useEffect(() => {
-    window.onbeforeunload = function () {
-      let x = JSON.stringify(state);
-      localStorage.setItem("x", x);
-    };
-    document.addEventListener("keypress", keypress);
-    function keypress(e) {
-      for (let i = 0; i < state.length; i++) {
-        if (e.key.toUpperCase() === state[i].text[0].toUpperCase()) {
-          window.open(state[i].url);
-          break;
-        }
-      }
-    }
+    localStorage.setItem("x", JSON.stringify(state));
   }, [state]);
   const revise = (index) => {
     setState((state) => {
@@ -39,7 +26,7 @@ export default function App() {
   const add = () => {
     let url = prompt("请输入网站地址");
     if (url === null || url.trim() === "") {
-      alert("不正确的输入方式，请修改噢");
+      return null;
     } else {
       if (url.indexOf("http") === -1) {
         url = "https://" + url;
@@ -66,6 +53,7 @@ export default function App() {
       }
     }
   };
+  document.addEventListener("keypress", add);
   return (
     <>
       <Header value={{ add: add }} />

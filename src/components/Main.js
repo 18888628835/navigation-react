@@ -1,5 +1,5 @@
 import React from "react";
-export default function Main(props) {
+const Main = (props) => {
   const { state, add, revise } = props.value;
   return (
     <main className="index-main">
@@ -17,7 +17,7 @@ export default function Main(props) {
                 <use xlinkHref="#icon-close"></use>
               </svg>
 
-              <a href={value.url}>
+              <a href={value.url} target="_blank" rel="noopener noreferrer">
                 <div className="list-logo">{value.text[0].toUpperCase()}</div>
                 <span className="list-text">{value.text}</span>
               </a>
@@ -37,4 +37,5 @@ export default function Main(props) {
       </ul>
     </main>
   );
-}
+};
+export default Main;
