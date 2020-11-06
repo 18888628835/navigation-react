@@ -1,6 +1,7 @@
 import React from "react";
 
 const Header = (props) => {
+  const { keyPress } = props.value;
   return (
     <>
       <header className="index-header ">
@@ -13,10 +14,16 @@ const Header = (props) => {
           method="get"
         >
           <input
+            onFocus={() => {
+              document.removeEventListener("keypress", keyPress);
+            }}
+            onBlur={() => {
+              document.addEventListener("keypress", keyPress);
+            }}
             className="index-searchText"
             type="text"
             name="wd"
-            placeholder="点击+号可添加网站。"
+            placeholder="tips：按键盘键+号也可以添加网站"
           />
           <button className="index-searchButton" type="submit">
             搜索

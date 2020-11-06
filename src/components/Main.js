@@ -25,7 +25,12 @@ const Main = (props) => {
           );
         })}
         <li onClick={add} className="main-list add">
-          <a href="#">
+          <a
+            href="baidu.com"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
             <div className="list-logo">
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-add" />
