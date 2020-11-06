@@ -8,7 +8,7 @@ const Main = (props) => {
           return (
             <li key={index} className="main-list main-lists">
               <svg
-                onClick={(index) => {
+                onClick={(e) => {
                   revise(index);
                 }}
                 className="icon close"

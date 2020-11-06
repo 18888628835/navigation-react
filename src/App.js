@@ -27,6 +27,7 @@ export default function App() {
     setState((state) => {
       const newState = JSON.parse(JSON.stringify(state));
       newState.splice(index, 1);
+      console.log(index);
       return newState;
     });
   };
